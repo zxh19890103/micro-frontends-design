@@ -1,0 +1,23 @@
+{
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vendors": "rm -rf ./dist && ../node_modules/.bin/webpack build -c ./webpack-vendors.config.js",
+    "build": "../node_modules/.bin/webpack build",
+    "release": "./release.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^17.0.26",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3"
+  }
+}

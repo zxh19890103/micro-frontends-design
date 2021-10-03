@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "_files",
+    "target": "ESNext",
+    "lib": ["ESNext", "ScriptHost", "DOM", "DOM.Iterable"],
+    "declaration": false,
+    "declarationMap": false,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "paths": {
+      "components/*": ["packages/components/src/*"],
+      "pages/*": ["packages/pages/src/*"]
+    }
+  }
+}

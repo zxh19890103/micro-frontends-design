@@ -1,0 +1,15 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "scripts": {},
+  "publishConfig": {},
+  "dependencies": {},
+  "files": [
+    "src",
+    "package.json",
+    "README.md"
+  ]
+}
