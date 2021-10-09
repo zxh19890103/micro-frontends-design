@@ -12,7 +12,9 @@
     "esModuleInterop": true,
     "paths": {
       "components/*": ["packages/components/src/*"],
-      "pages/*": ["packages/pages/src/*"]
+      "pages/*": ["packages/pages/src/*"],
+      "core/*": ["packages/core/src/*"]
     }
-  }
+  },
+  "include": ["packages"]
 }

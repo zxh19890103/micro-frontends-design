@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "_files",
     "target": "ESNext",
     "lib": ["ESNext", "ScriptHost", "DOM", "DOM.Iterable"],
@@ -8,8 +9,13 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "moduleResolution": "Node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@hr/components/*": ["node_modules/@hr/components/src/*"],
+      "@hr/pages/*": ["node_modules/@hr/pages/src/*"],
+      "@hr/core/*": ["node_modules/@hr/core/src/*"]
+    }
   },
-  "include": ["index.js", "src"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

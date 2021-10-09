@@ -1,0 +1,14 @@
+- `inquirer`, enquirer or prompts for complex input prompts
+- `email-prompt` for convenient email input prompts
+- `chalk` or `kleur` for colored output
+- `ora` for beautiful spinners
+- `boxen` for drawing boxes around your output
+- `stmux` for a tmux like UI
+- `listr` for progress lists
+- `ink` to build CLIs with React
+- `meow` or `arg` for basic argument parsing
+- `commander` and `yargs` for complex argument parsing and subcommand support
+- `oclif` a framework for building extensible CLIs by Heroku (gluegun as an - alternative)
+- `execa` which allows us to easily run external commands like git
+- `pkg-install` to trigger either yarn install or npm install depending on what the user uses
+- `listr` which let's us specify a list of tasks and gives the user a neat progress overview

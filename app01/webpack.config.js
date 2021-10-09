@@ -1,19 +1,23 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const { getDLLManifests, syncDLLManifests } = require("./scripts/manifest");
+
+const dllManifests = getDLLManifests();
+
 /**
  * @type {webpack.Configuration}
  */
 module.exports = {
   context: __dirname,
-  entry: ["./index"],
-  mode: "development",
+  entry: ["./src/index"],
+  mode: "production",
   output: {
+    publicPath: '/',
     path: path.join(__dirname, "./dist"),
     filename: "app01.js",
   },
   devServer: {
-    static: [path.join(__dirname, "../framework/dist"), "./plugins"],
     compress: false,
     port: 9000,
     allowedHosts: "all",
@@ -27,32 +31,47 @@ module.exports = {
         loader: "ts-loader",
         exclude: /node_modules/,
         options: {
-          transpileOnly: true
-        }
+          transpileOnly: true,
+        },
       },
     ],
   },
+  stats: {
+  },
+  performance: {
+  },
+  optimization: {
+    minimize: false
+  },
   resolve: {
     extensions: [".js", ".jsx"],
+    alias: {
+      "@hr/components": path.resolve("./node_modules/@hr/components/src"),
+      "@hr/pages": path.resolve("./node_modules/@hr/pages/src"),
+      "@hr/core": path.resolve("./node_modules/@hr/core/src"),
+    }
   },
   plugins: [
     new HTMLWebpackPlugin({
-      inject: "body",
+      inject: false,
       template: path.join(__dirname, "./index.html"),
+      minify: false,
+      templateParameters: (_, assets) => {
+        return {
+          htmlWebpackPlugin: {
+            js: [...dllManifests.map((x) => x.src), ...assets.js].map(
+              (x) => `  <script src="${x}"></script>`
+            ).join('\n'),
+            css: assets.css,
+          },
+        };
+      },
     }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      name: "__Lib_vendors",
-      manifest: path.join(__dirname, `../framework/dist/vendors.manifest.json`),
-    }),
-    ...Object.entries(require("../framework/scopes")).map(([name]) => {
+    ...dllManifests.map((item) => {
       return new webpack.DllReferencePlugin({
-        context: __dirname + "/node_modules/@hr",
-        name: `__Lib_${name}`,
-        manifest: path.join(
-          __dirname,
-          `../framework/dist/${name}.manifest.json`
-        ),
+        context: path.join(__dirname, item.context),
+        name: `__Lib_${item.name}`,
+        manifest: item.manifest,
       });
     }),
   ],

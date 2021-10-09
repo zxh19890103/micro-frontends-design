@@ -1,6 +1,6 @@
-import React from 'react'
-import { Button } from '../../components/src'
+import React from "react";
+import { Button } from "components/Button";
 
-export default () => {
-  return React.createElement(Button, null)
-}
+export const NotFound = () => {
+  return <Button text="hello" />;
+};

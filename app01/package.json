@@ -5,16 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "sync": "yarn upgrade @hr/components @hr/pages @hr/core",
     "serve": "../node_modules/.bin/webpack serve",
-    "build": "../node_modules/.bin/webpack build"
+    "build": "../node_modules/.bin/webpack build",
+    "manifest": "node ./scripts/manifest.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hr/components": "../framework/packages/components/.release",
-    "@hr/pages": "../framework/packages/pages/.release",
-    "@hr/portal": "../framework/packages/portal/.release",
+    "@hr/components": "../framework/packages/components",
+    "@hr/core": "../framework/packages/core",
+    "@hr/pages": "../framework/packages/pages",
     "@material-ui/core": "^4.12.3",
     "@types/react": "^17.0.26",
     "react": "^17.0.2",

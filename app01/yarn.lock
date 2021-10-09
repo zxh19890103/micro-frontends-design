@@ -14,13 +14,13 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
-"@hr/components@../framework/packages/components/.release":
+"@hr/components@../framework/packages/components":
   version "1.0.0"
 
-"@hr/pages@../framework/packages/pages/.release":
+"@hr/core@../framework/packages/core":
   version "1.0.0"
 
-"@hr/portal@../framework/packages/portal/.release":
+"@hr/pages@../framework/packages/pages":
   version "1.0.0"
 
 "@material-ui/core@^4.12.3":
